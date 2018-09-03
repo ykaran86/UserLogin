@@ -66,6 +66,7 @@ public class SignUp extends AppCompatActivity {
         contentValues.put(SQLiteDatabaseHandler.COL_4,userId);
         contentValues.put(SQLiteDatabaseHandler.COL_5,pswd);
         contentValues.put(SQLiteDatabaseHandler.COL_6,eMail);
+        contentValues.put(SQLiteDatabaseHandler.COL_7,"");
         long id = db.insert(SQLiteDatabaseHandler.TABLE_NAME,null,contentValues);
         Intent intent = new Intent(this, Home.class);
         intent.putExtra("message",userId);

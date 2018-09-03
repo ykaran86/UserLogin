@@ -16,6 +16,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
     public static final String COL_4="userId";
     public static final String COL_5="password";
     public static final String COL_6="Email";
+    public static final String COL_7="profilePic";
     SQLiteDatabase db;
 
     public SQLiteDatabaseHandler(Context context){
@@ -24,7 +25,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATION_TABLE = "CREATE TABLE " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, userId TEXT, password TEXT, Email Text)";
+        String CREATION_TABLE = "CREATE TABLE " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, userId TEXT, password TEXT, Email Text,profilePic blob)";
         db.execSQL(CREATION_TABLE);
     }
 
@@ -62,7 +63,7 @@ public class SQLiteDatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(query);
         String query1="drop table "+TABLE_NAME;
         db.execSQL(query1);
-        String query2="CREATE TABLE " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, userId TEXT, password TEXT, Email Text)";
+        String query2="CREATE TABLE " + TABLE_NAME + "( id INTEGER PRIMARY KEY AUTOINCREMENT, firstName TEXT, lastName TEXT, userId TEXT, password TEXT, Email Text, profilePic blob)";
         db.execSQL(query2);
     }
 }
